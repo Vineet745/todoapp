@@ -1,0 +1,23 @@
+<%- include("header")%>
+<%- include("nav")%>
+
+<ol class="list-group list-group-numbered container">
+  <h1 class="my-3"><span class="text-danger ">Remaining</span> task...</h1>
+
+  <%tasks.forEach((task)=>{ %>
+
+    <li class="list-group-item d-flex justify-content-between align-items-start border border-dark my-1">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold"><%= task.title%></div>
+        <%= task.description%> | <small class="text-danger fw-bold"><%= task.deadline%></small>
+      </div>
+      <a href="/edit/<%= task.id%>"><span class="badge fs-4 rounded-pill">🖋</span></a>
+      <a href="/delete/<%= task.id%>"><span class="badge fs-4 rounded-pill">❌</span></a>
+    </li>
+
+ <% })%>
+  
+  
+</ol>
+
+<%- include("footer")%>
